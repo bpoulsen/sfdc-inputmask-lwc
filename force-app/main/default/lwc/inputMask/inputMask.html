@@ -1,0 +1,22 @@
+<template>
+    <article if:true={contact} class="slds-card">
+        <div class="slds-card__body slds-card__body_inner">
+            <lightning-input class="slds-m-bottom_small" label="First Name" value={contact.fields.FirstName.value} data-field="FirstName" required></lightning-input>
+            <lightning-input class="slds-m-bottom_small" label="Last Name" value={contact.fields.LastName.value} data-field="LastName" required></lightning-input>
+            <lightning-input class="slds-m-bottom_medium"
+                             name="Phone"
+                             label="Phone"
+                             data-field="Phone"
+                             required
+                             value={phone}
+                             placeholder="(###) ###-####"
+                             pattern="^\(\d{3}\)\s\d{3}-\d{4}$"
+                             message-when-pattern-mismatch="Not a valid phone number"
+                             message-when-value-missing="Phone number is required"
+                             onchange={handlePhoneInputMask}>
+
+            </lightning-input>
+            <lightning-button variant="brand" label="Save" onclick={save}></lightning-button>
+        </div>
+    </article>
+</template>
